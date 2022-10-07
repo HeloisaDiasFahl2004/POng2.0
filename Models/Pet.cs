@@ -10,18 +10,20 @@ namespace Models
         public string Raca { get; set; }
         public char Sexo { get; set; }
         public string Nome { get; set; }
+        public char Situacao { get; set; }
 
         public Pet()
         {
 
         }
-        public Pet(string f, string r, char s, string n)
+        public Pet(string f, string r, char s, string n, char sit)
         {
 
             this.Familia = f;
             this.Raca = r;
             this.Sexo = s;
             this.Nome = n;
+            this.Situacao = sit;
         }
 
         public override string ToString()
@@ -30,7 +32,8 @@ namespace Models
                 "\nFamília: " + this.Familia +
                 "\nRaca: " + this.Raca +
                 "\nSexo: " + this.Sexo +
-                "\nNome: " + this.Nome;
+                "\nNome: " + this.Nome +
+                "\nSituação: " + this.Situacao;
         }
     }
 }

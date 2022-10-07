@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 
 namespace Controllers
 {
-    internal class AdotanteController
+    public class AdotanteController
     {
         //métodos
+        public Adotante InserirAdotante(Adotante adotante)
+        {
+            return new AdotanteServices.InserirAdotante(adotante);
+        }
     }
 }
