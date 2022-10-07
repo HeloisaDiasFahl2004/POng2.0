@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Controllers
+namespace POng2._0.Controllers
 {
-    internal class AdocaoController
+    internal class PetController
     {
     }
 }

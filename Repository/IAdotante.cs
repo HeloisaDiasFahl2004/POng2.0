@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Services
+namespace Repository
 {
-    internal class AdocaoService
+    internal interface IAdotante
     {
     }
 }

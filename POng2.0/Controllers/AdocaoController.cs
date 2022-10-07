@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Services
+namespace POng2._0.Controllers
 {
-    internal class PetService
+    internal class AdocaoController
     {
-        //tudo relacionado ao Banco de Dados
     }
 }

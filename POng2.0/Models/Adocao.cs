@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Models
+namespace POng2._0.Models
 {
-    internal class Adocao
-    {
-        //propriedades, método construtor , tostring
+    public class Adocao
+    {//propriedades, método construtor , tostring
         public string CPF { get; set; }
         public int CHIP { get; set; }
         public DateTime DataAdocao { get; set; }

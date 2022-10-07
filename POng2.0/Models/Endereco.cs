@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Models
+namespace POng2._0.Models
 {
-    internal class Endereco
-    { 
-        //propriedade, método construtor,Tostring 
+    public class Endereco
+    {  //propriedade, método construtor,Tostring 
         public string Logradouro { get; set; }
         public string Cep { get; set; }
         public string Complemento { get; set; }
