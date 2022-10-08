@@ -17,10 +17,8 @@ namespace POng2._0.Services
         {
             var conn = bd.BuscarConexao();
             
-            conn.Execute(Adotante.INSERT, adotante);
-         
-           
-          
+            conn.Execute(Adotante.INSERT, adotante);//dapper
+        
             return adotante;
         }
        

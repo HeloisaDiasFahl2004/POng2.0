@@ -90,8 +90,10 @@ namespace POng2._0
                         break;
                     case 1:
                         Adotante adotante = new Adotante();//crio o objeto
-                      new AdotanteController().CadastrarAdotante(adotante);//cadastro esse objeto
-                       new AdotanteService().InserirAdotante(adotante);//insiro esse objeto no banco de dados
+                        AdotanteController ad = new AdotanteController();// utilizando design pattern command
+                        ad.CadastrarAdotante(adotante);//cadastro esse objeto
+                        ad.InserirAdotante(adotante);//insiro esse objeto no banco de dados
+                      
                         break;
 
                     //  case 2:
