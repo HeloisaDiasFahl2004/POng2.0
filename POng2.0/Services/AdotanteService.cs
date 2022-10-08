@@ -18,9 +18,9 @@ namespace POng2._0.Services
         public Adotante InserirAdotante(Adotante adotante)
         {
             var conn = bd.BuscarConexao();
-            
+
             conn.Execute(Adotante.INSERT, adotante);//dapper
-        
+
             return adotante;
         }
 
@@ -36,22 +36,22 @@ namespace POng2._0.Services
 
         public Adotante BuscarAdotante(String cpf)
         {
-            
+
             using (var conn = bd.BuscarConexao())
             {
                 var adotantes = conn.QueryFirst<Adotante>($"SELECT * FROM Adotante WHERE cpf ={cpf}");
 
                 return adotantes;
             }
-          
+
         }
 
-       public bool DeletAdotante(String cpf)
+        public bool DeletAdotante(String cpf)
         {
             int result = 0;
             using (var conn = bd.BuscarConexao())
             {
-               result = conn.Execute($"DELETE FROM Adotante WHERE CPF={cpf}");
+                result = conn.Execute($"DELETE FROM Adotante WHERE CPF={cpf}");
             }
             return (result != 0 ? true : false);
 

@@ -16,8 +16,8 @@ namespace POng2._0
             {
                 string cpf = Console.ReadLine();
                 AdotanteController ad = new AdotanteController();
-                string busca= $"SELECT * FROM Adotante WHERE cpf ={cpf}";
-                if (!string.IsNullOrEmpty(busca))
+              
+                if (ad.BuscarAdotante(cpf)!=null)
                 {
                     return cpf;
                 }
@@ -128,9 +128,16 @@ namespace POng2._0
                             Thread.Sleep(900);
                             MenuAdotante();
                         }
-                      ad.DeletAdotante(cpf);
-                        Console.WriteLine("Adotante excluído com sucesso!");
-                        Console.ReadKey();
+                     var result = ad.DeletAdotante(cpf);
+                        if (result)
+                        {
+                            Console.WriteLine("Adotante excluído com sucesso!");
+                            Console.ReadKey();
+                        }
+                        Console.WriteLine("Não foi possível deletar!"); 
+                        Console.WriteLine(">>> Retornando para o menu do adotante <<<");
+                        Thread.Sleep(900);
+                        MenuAdotante();
                         break;
 
                     case 4:
