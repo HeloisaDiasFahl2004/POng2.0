@@ -90,10 +90,10 @@ namespace POng2._0
                 Console.WriteLine("\t<<< MENU ADOTANTE >>>");
                 Console.WriteLine("\t 0-Retornar ao menu principal");
                 Console.WriteLine("\t 1-Cadastrar Adotante");
-                Console.WriteLine("\t 2-Editar Adotante");
+                Console.WriteLine("\t 2-Editar Adotante");//
                 Console.WriteLine("\t 3-Deletar Adotante");
-                Console.WriteLine("\t 4-Exibir Adotante");// ok
-                Console.WriteLine("\t 5-Adotante já cadastrado");// +/-
+                Console.WriteLine("\t 4-Exibir todos Adotantes");// ok
+                Console.WriteLine("\t 5-Adotante já cadastrado");// ok
                 Console.Write("\t Escolha uma opção: ");
                 opc = int.Parse(Console.ReadLine());
 
@@ -161,7 +161,6 @@ namespace POng2._0
                         }
                         Adotante adotant = ad.BuscarAdotante(cpf);
                         Console.WriteLine(adotant);
-                        Console.WriteLine();
                         Console.ReadKey();
                         //"login" do adotante            
                         break;
@@ -201,17 +200,31 @@ namespace POng2._0
                     //case 2:
                     //    bd.AtualizarCampoAdotado();
                     //    break;
-                    //case 3:
-                    //    bd.DeletarAdotado();
-                    //    break;
-                    //case 4:
-                    //    adotado = new Adotado();
-                    //    Console.WriteLine("Deseja exibir: 1-Todos os Adotados  2-Um Adotado em específico");
-                    //    int opcao = int.Parse(Console.ReadLine());
-                    //    if (opcao == 1) bd.VisualizarAdotados(adotado);
-                    //    else if (opcao == 2) bd.BuscarAdotado(adotado);
-                    //    else Console.WriteLine("Opção inválida!");
-                    //    break;
+                    case 3:
+                        pe = new PetController();
+                        Console.WriteLine("Informe o CHIP: ");
+                        int chip = int.Parse(Console.ReadLine());
+                        pe.BuscarPet(chip);
+                        var result = pe.DeletPet(chip);
+                        if (result)
+                        {
+                            Console.WriteLine("Pet excluído com sucesso!");
+                            Console.ReadKey();
+                            break;
+                        }
+                        Console.WriteLine("Não foi possível deletar!");
+                        Console.WriteLine(">>> Retornando para o menu do pet <<<");
+                        Thread.Sleep(900);
+                        MenuPet();
+                        break;
+                    case 4:
+                        Console.WriteLine(">>> INÍCIO IMPRESSÃO <<< ");
+                        pe = new PetController();
+                        var pets = pe.SelectPet();
+                        pets.ForEach(x=>Console.WriteLine(x));
+                        Console.WriteLine(">>> FIM IMPRESSÃO <<<");
+                        Console.ReadKey();
+                        break;
                     default:
                         Console.WriteLine("Opção inválida!");
                         break;

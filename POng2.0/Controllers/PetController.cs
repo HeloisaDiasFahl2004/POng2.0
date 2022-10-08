@@ -17,20 +17,20 @@ namespace POng2._0.Controllers
             return new PetService().InserirPet(pet);
         }
 
+        public Pet BuscarPet(int chip)
+        {
+            return new PetService().BuscarPet(chip);
+        }
+
         public List<Pet> SelectPet()
         {
             return new PetService().SelectPet();
         }
 
-        public Pet BuscarPet(String chip)
+        public bool DeletPet(int chip)
         {
-            return new PetService().BuscarPet(chip);
+            return new PetService().DeletPet(chip);
         }
-        public Pet UpdateSituacao(Pet pet)
-        {
-            return new PetService().UpdateSituacao(pet);
-        }
-
         public void CadastrarPet(Pet pet)
         {
             Console.WriteLine(" >>> INICIANDO CADASTRO Pet <<< ");
@@ -52,5 +52,7 @@ namespace POng2._0.Controllers
             Console.WriteLine("A situação ficará como: " + pet.Situacao);
 
         }
+
+    
     }
 }

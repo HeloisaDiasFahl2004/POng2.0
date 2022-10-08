@@ -12,6 +12,7 @@ namespace POng2._0.Services
     public class PetService
     {
         ConexaoBD bd = new();
+     
         public Pet InserirPet(Pet pet)
         {
             var conn = bd.BuscarConexao();
@@ -20,6 +21,7 @@ namespace POng2._0.Services
 
             return pet;
         }
+      
         public List<Pet> SelectPet()
         {
             using (var conn = bd.BuscarConexao())
@@ -29,14 +31,8 @@ namespace POng2._0.Services
                 return (List<Pet>)pets;
             }
         }
-        public Pet UpdateSituacao(Pet pet)
-        {
-            var conn = bd.BuscarConexao();
-
-            conn.Execute(Pet.UPDATEsituacao, pet.CHIP);
-            return pet;
-        }
-        public Pet BuscarPet(String chip)
+      
+        public Pet BuscarPet(int chip)
         {
 
             using (var conn = bd.BuscarConexao())
@@ -45,6 +41,17 @@ namespace POng2._0.Services
 
                 return pet;
             }
+
+        }
+
+        public bool DeletPet(int chip)
+        {
+            int result = 0;
+            using (var conn = bd.BuscarConexao())
+            {
+                result = conn.Execute($"DELETE FROM Pet WHERE CHIP={chip}");
+            }
+            return (result != 0 ? true : false);
 
         }
     }
