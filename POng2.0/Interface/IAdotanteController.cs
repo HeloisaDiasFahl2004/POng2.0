@@ -11,10 +11,10 @@ namespace POng2._0.Interface
     {
         public Adotante InserirAdotante(Adotante adotante);
 
-        public String BuscarAdotante(string cpf);
+        public Adotante BuscarAdotante(String cpf);
 
         public List<Adotante> SelectAdotante();
-
+        public bool DeletAdotante(String cpf);
 
         public void CadastrarAdotante(Adotante adotante);
     }

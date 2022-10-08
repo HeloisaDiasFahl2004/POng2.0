@@ -16,7 +16,7 @@ namespace POng2._0.Models
         public readonly static string SELECT = "SELECT * FROM Pet";
 
 
-        public readonly static string UPDATE = "UPDATE Pet set CAMPO= @Campo  WHERE chip=@Chip;";// CAMPO -> CAMPO DESEJADO -> VER COMO FAZER
+        public readonly static string UPDATEsituacao = $"UPDATE Pet set Situacao = {'A'}  WHERE chip=@Chip;";// CAMPO -> CAMPO DESEJADO -> VER COMO FAZER
 
 
         #endregion

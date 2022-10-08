@@ -17,7 +17,19 @@ namespace POng2._0.Controllers
             return new PetService().InserirPet(pet);
         }
 
-       
+        public List<Pet> SelectPet()
+        {
+            return new PetService().SelectPet();
+        }
+
+        public Pet BuscarPet(String chip)
+        {
+            return new PetService().BuscarPet(chip);
+        }
+        public Pet UpdateSituacao(Pet pet)
+        {
+            return new PetService().UpdateSituacao(pet);
+        }
 
         public void CadastrarPet(Pet pet)
         {

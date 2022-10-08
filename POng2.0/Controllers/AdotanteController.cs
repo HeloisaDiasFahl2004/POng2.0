@@ -19,13 +19,20 @@ namespace POng2._0.Controllers
         {
             return new AdotanteService().InserirAdotante(adotante);
         }
-        public String BuscarAdotante(string cpf)
+
+        public Adotante BuscarAdotante(String cpf)
         {
             return new AdotanteService().BuscarAdotante(cpf);
         }
+      
         public List<Adotante> SelectAdotante()
         {
             return new AdotanteService().SelectAdotante();
+        }
+
+        public bool DeletAdotante(String cpf)
+        {
+            return new AdotanteService().DeletAdotante(cpf);
         }
 
         public void CadastrarAdotante(Adotante adotante)
@@ -79,9 +86,6 @@ namespace POng2._0.Controllers
 
 
         } //cadastro adotante
-
-
- 
     }
     
 }

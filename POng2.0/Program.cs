@@ -9,7 +9,28 @@ namespace POng2._0
 {
     internal class Program
     {
-     
+        static string ValidarEntrada()
+        {
+            Console.Write("Informe o CPF para prosseguir: ");
+            try
+            {
+                string cpf = Console.ReadLine();
+                AdotanteController ad = new AdotanteController();
+                string busca= $"SELECT * FROM Adotante WHERE cpf ={cpf}";
+                if (!string.IsNullOrEmpty(busca))
+                {
+                    return cpf;
+                }
+               
+
+            }
+            catch(Exception )
+            {
+                Console.WriteLine("CPF Inválido!");
+                Console.ReadKey();
+            }
+            return null;
+        }
         static void Menu()
         {
             int opc;
@@ -71,8 +92,8 @@ namespace POng2._0
                 Console.WriteLine("\t 1-Cadastrar Adotante");
                 Console.WriteLine("\t 2-Editar Adotante");
                 Console.WriteLine("\t 3-Deletar Adotante");
-                Console.WriteLine("\t 4-Exibir Adotante");
-                Console.WriteLine("\t 5-Adotante já cadastrado");
+                Console.WriteLine("\t 4-Exibir Adotante");// ok
+                Console.WriteLine("\t 5-Adotante já cadastrado");// +/-
                 Console.Write("\t Escolha uma opção: ");
                 opc = int.Parse(Console.ReadLine());
 
@@ -86,27 +107,55 @@ namespace POng2._0
                         AdotanteController ad = new AdotanteController();// utilizando design pattern command
                         ad.CadastrarAdotante(adotante);//cadastro esse objeto
                         ad.InserirAdotante(adotante);//insiro esse objeto no banco de dados
+                       // PetController p = new PetController();
+                       //p.UpdateSituacao(pet);
+
                         break;
 
                     //  case 2:
                     ////      bd.AtualizarCampoAdotante();
                     //      break;
 
-                    //  case 3:
-                    //  //    bd.DeletarAdotante();
-                    //      break;
-
-                      case 4:
+                    case 3:
                         ad = new AdotanteController();
-                        var adotantes =  ad.SelectAdotante();
+
+                        Console.Write("Informe o CPF: ");
+                        string cpf = ValidarEntrada();
+                        if (cpf == null)
+                        {
+                            Console.WriteLine("CPF inexistente!");
+                            Console.WriteLine(">>> Retornando para o menu do adotante <<<");
+                            Thread.Sleep(900);
+                            MenuAdotante();
+                        }
+                      ad.DeletAdotante(cpf);
+                        Console.WriteLine("Adotante excluído com sucesso!");
+                        Console.ReadKey();
+                        break;
+
+                    case 4:
+                        Console.WriteLine(">>> INÍCIO IMPRESSÃO <<< ");
+                        ad = new AdotanteController();
+                        var adotantes = ad.SelectAdotante();
                         adotantes.ForEach(x => Console.WriteLine(x));
+                        Console.WriteLine(">>> FIM IMPRESSÃO <<< ");
                         Console.ReadKey();
                         break;
                     case 5:
-                        Console.Write("Informe o CPF: ");
-                        string cpf = Console.ReadLine();
                         ad = new AdotanteController();
-                        ad.BuscarAdotante(cpf);
+                        Console.Write("Informe o CPF: ");
+                         cpf = ValidarEntrada();
+                        if (cpf == null)
+                        {
+                            Console.WriteLine("CPF inexistente!");
+                            Console.WriteLine(">>> Retornando para o menu do adotante <<<");
+                            Thread.Sleep(900);
+                            MenuAdotante();
+                        }
+                        Adotante adotant = ad.BuscarAdotante(cpf);
+                        Console.WriteLine(adotant);
+                        Console.WriteLine();
+                        Console.ReadKey();
                         //"login" do adotante            
                         break;
                     default:
@@ -116,7 +165,7 @@ namespace POng2._0
                 }
             } while (opc != 0);
         } // 5 opções  -> sair/cadastrar/editar/deletar/exibir
-static void MenuPet()
+        static void MenuPet()
         {
             int opc;
             do
@@ -136,11 +185,11 @@ static void MenuPet()
                         Menu();
                         break;
                     case 1:
-                       Pet pet  = new Pet();
+                        Pet pet = new Pet();
                         PetController pe = new PetController();
                         pe.CadastrarPet(pet);
                         pe.InserirPet(pet);
-                     
+
                         break;
                     //case 2:
                     //    bd.AtualizarCampoAdotado();

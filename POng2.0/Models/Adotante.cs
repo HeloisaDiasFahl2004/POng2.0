@@ -8,22 +8,18 @@ namespace POng2._0.Models
 {
     public class Adotante
     { //propriedade, método construtor,Tostring 
-        #region Constante
+        #region Constante INSERT,SELECT * 
         public readonly static string INSERT = "INSERT INTO Adotante (CPF,Nome,Sexo,DataNascimento,Telefone," +
             "Logradouro,CEP,Complemento,Numero,Bairro,Cidade,Estado,Chip,DataAdocao) " +
             "VALUES(@Cpf,@Nome,@Sexo,@DataNascimento,@Telefone," +
             "@Logradouro,@CEP,@Complemento,@Numero,@Bairro,@Cidade,@Estado,@Chip,@DataAdocao)";
-        //criando uma constante publica, somente de leitura, já passando o comando do banco de dados
-
-        //serve pra já inserir no bd
-
-        public readonly static string SELECTONE = "SELECT * FROM Adotante WHERE cpf=@CPF";
+        //criando uma constante publica, somente de leitura, já passando o comando do banco de dados, serve pra já inserir no bd
 
         public readonly static string SELECT = "SELECT * FROM Adotante";
 
         public readonly static string UPDATE = "UPDATE Adotante set CAMPO= @Campo  WHERE cpf=@CPF;";// CAMPO -> CAMPO DESEJADO -> VER COMO FAZER
 
-        public readonly static string DELETE = "DELETE FROM Adotante WHERE CPF=@CPF;";
+       
         #endregion
         public string Cpf { get; set; }
         public string Nome { get; set; }
@@ -78,5 +74,8 @@ namespace POng2._0.Models
                 "\nData Adoção: " + DateTime.Now;
 
         }
+
+       
+     
     }
 }
