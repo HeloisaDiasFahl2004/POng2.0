@@ -1,4 +1,5 @@
-﻿using POng2._0.Models;
+﻿using POng2._0.Interface;
+using POng2._0.Models;
 using POng2._0.Services;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 namespace POng2._0.Controllers
 {
 
-    public class AdotanteController
+    public class AdotanteController : IAdotanteController
     {
         //métodos
         public Adotante InserirAdotante(Adotante adotante)
@@ -59,6 +60,12 @@ namespace POng2._0.Controllers
 
             Console.Write("Estado: ");
             adotante.Estado = Console.ReadLine();
+
+            Console.WriteLine("Chip Animal: ");
+            adotante.Chip = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Data Adoção");
+            adotante.DataAdocao = System.DateTime.Now;
 
 
 
