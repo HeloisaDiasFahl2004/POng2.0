@@ -13,6 +13,8 @@ namespace POng2._0.Services
     {
 
         ConexaoBD bd = new();
+
+
         public Adotante InserirAdotante(Adotante adotante)
         {
             var conn = bd.BuscarConexao();
@@ -21,6 +23,24 @@ namespace POng2._0.Services
         
             return adotante;
         }
+        public List<Adotante> SelectAdotante()
+        {
+            using (var conn = bd.BuscarConexao())
+            {
+                var adotantes = conn.Query<Adotante>(Adotante.SELECT);
+
+                return (List<Adotante>)adotantes;
+            }
+        }
+        public String BuscarAdotante(string cpf)
+        {
+            var conn = bd.BuscarConexao();
+
+            conn.Execute(Adotante.SELECTONE, cpf);//dapper
+
+            return cpf;
+        }
+      
        
     }
 }

@@ -17,6 +17,8 @@ namespace POng2._0.Controllers
             return new PetService().InserirPet(pet);
         }
 
+       
+
         public void CadastrarPet(Pet pet)
         {
             Console.WriteLine(" >>> INICIANDO CADASTRO Pet <<< ");
@@ -32,7 +34,7 @@ namespace POng2._0.Controllers
             pet.Sexo = char.Parse(Console.ReadLine());
 
             Console.WriteLine("Nome: ");
-            pet.Nome=Console.ReadLine();
+            pet.Nome = Console.ReadLine();
 
             pet.Situacao = 'D';//Disponível para adoção
             Console.WriteLine("A situação ficará como: " + pet.Situacao);

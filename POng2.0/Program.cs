@@ -9,6 +9,7 @@ namespace POng2._0
 {
     internal class Program
     {
+     
         static void Menu()
         {
             int opc;
@@ -85,7 +86,6 @@ namespace POng2._0
                         AdotanteController ad = new AdotanteController();// utilizando design pattern command
                         ad.CadastrarAdotante(adotante);//cadastro esse objeto
                         ad.InserirAdotante(adotante);//insiro esse objeto no banco de dados
-                      
                         break;
 
                     //  case 2:
@@ -96,18 +96,17 @@ namespace POng2._0
                     //  //    bd.DeletarAdotante();
                     //      break;
 
-                    //  case 4:
-                    //      adotante = new Adotante();
-                    //      Console.WriteLine("Deseja: 1-Visualizar TODOS os adotantes 2- UM adotante em específico");
-                    //      int resp = int.Parse(Console.ReadLine());
-
-                    //  //    if (resp == 1) bd.VisualizarAdotantes(adotante);
-
-                    //   //   else if (resp == 2) bd.BuscarAdotante(adotante);
-
-                    //      else Console.WriteLine("Opção Inválida!");
-                    //      break;
+                      case 4:
+                        ad = new AdotanteController();
+                        var adotantes =  ad.SelectAdotante();
+                        adotantes.ForEach(x => Console.WriteLine(x));
+                        Console.ReadKey();
+                        break;
                     case 5:
+                        Console.Write("Informe o CPF: ");
+                        string cpf = Console.ReadLine();
+                        ad = new AdotanteController();
+                        ad.BuscarAdotante(cpf);
                         //"login" do adotante            
                         break;
                     default:

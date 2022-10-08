@@ -4,6 +4,7 @@ using POng2._0.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -18,7 +19,15 @@ namespace POng2._0.Controllers
         {
             return new AdotanteService().InserirAdotante(adotante);
         }
-     
+        public String BuscarAdotante(string cpf)
+        {
+            return new AdotanteService().BuscarAdotante(cpf);
+        }
+        public List<Adotante> SelectAdotante()
+        {
+            return new AdotanteService().SelectAdotante();
+        }
+
         public void CadastrarAdotante(Adotante adotante)
         {
 
@@ -70,6 +79,9 @@ namespace POng2._0.Controllers
 
 
         } //cadastro adotante
+
+
+ 
     }
     
 }

@@ -17,6 +17,8 @@ namespace POng2._0.Models
 
         //serve pra já inserir no bd
 
+        public readonly static string SELECTONE = "SELECT * FROM Adotante WHERE cpf=@CPF";
+
         public readonly static string SELECT = "SELECT * FROM Adotante";
 
         public readonly static string UPDATE = "UPDATE Adotante set CAMPO= @Campo  WHERE cpf=@CPF;";// CAMPO -> CAMPO DESEJADO -> VER COMO FAZER
