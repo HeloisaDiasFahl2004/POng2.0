@@ -9,13 +9,14 @@ namespace POng2._0
 {
     internal class Program
     {
+       static AdotanteController ad = new AdotanteController();
         static string ValidarEntrada()
         {
             Console.Write("Informe o CPF para prosseguir: ");
             try
             {
                 string cpf = Console.ReadLine();
-                AdotanteController ad = new AdotanteController();
+               
               
                 if (ad.BuscarAdotante(cpf)!=null)
                 {
@@ -114,7 +115,7 @@ namespace POng2._0
 
                     case 2:
                         ad = new AdotanteController();
-                        Console.Write("Informe o CPF: ");
+                       
                         string cpf = ValidarEntrada();
                         if (cpf == null)
                         {
@@ -304,20 +305,21 @@ namespace POng2._0
                     case 3:
                         ad = new AdotanteController();
 
-                        Console.Write("Informe o CPF: ");
+                     
                         cpf = ValidarEntrada();
                         if (cpf == null)
                         {
-                            Console.WriteLine("CPF inexistente!");
+                          
                             Console.WriteLine(">>> Retornando para o menu do adotante <<<");
                             Thread.Sleep(900);
-                            MenuAdotante();
+                            break;
                         }
                      var result = ad.DeletAdotante(cpf);
                         if (result)
                         {
                             Console.WriteLine("Adotante excluído com sucesso!");
                             Console.ReadKey();
+                            break;
                         }
                         Console.WriteLine("Não foi possível deletar!"); 
                         Console.WriteLine(">>> Retornando para o menu do adotante <<<");
@@ -335,7 +337,7 @@ namespace POng2._0
                         break;
                     case 5:
                         ad = new AdotanteController();
-                        Console.Write("Informe o CPF: ");
+                        
                          cpf = ValidarEntrada();
                         if (cpf == null)
                         {

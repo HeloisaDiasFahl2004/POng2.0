@@ -157,12 +157,13 @@ namespace POng2._0.Controllers
                     adotante.Chip = pet.CHIP;
                     petController.UpdateSituacaoPet(chip);
                     prossiga = true;
+                    break;
                 }
                 Console.WriteLine("Esse pet já possui um lar!\nForneça um lar para outro pet...");
                 
 
             } while (prossiga==false);
-            Console.WriteLine("Data Adoção");
+            Console.WriteLine("Data Adoção: Data Atual");
             adotante.DataAdocao = System.DateTime.Now;
 
          
