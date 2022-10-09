@@ -120,7 +120,7 @@ namespace POng2._0
                             Thread.Sleep(900);
                             MenuAdotante();
                         }
-                        Console.Write("Informe o campo que deseja editar: 0-Cancelar Edição  1-Nome  2-Sexo  3-Data Nascimento  4-Endereço  5-Telefone ");
+                        Console.Write("Informe o campo que deseja editar: 0-Cancelar Edição  1-Nome  2-Sexo  3-Data Nascimento  4-Endereço  5-Telefone  6-Chip do Animal");
                         int campo = int.Parse(Console.ReadLine());
                         switch (campo)
                         {
@@ -189,6 +189,25 @@ namespace POng2._0
                                 Console.Write("Informe o Telefone: ");
                                 string telefone = Console.ReadLine();
                                 var resultado = ad.UpdateTelefoneAdotante(cpf, telefone);
+                                break;
+                            case 6:
+                                bool prossiga = false;
+                                do
+                                {
+                                    Console.WriteLine("Informe o Chip do Animal que deseja adotar: ");
+                                    int chip = int.Parse(Console.ReadLine());
+                                    PetController petController = new PetController();
+                                    Pet pet = petController.BuscarPet(chip);
+                                    if (pet.Situacao == 'D')
+                                    {
+                                        var resultados = ad.UpdateChipPet(cpf, chip);
+                                        petController.UpdateSituacaoPet(chip);
+                                        prossiga = true;
+                                    }
+                                    Console.WriteLine("Esse pet já possui um lar!\nForneça um lar para outro pet...");
+
+
+                                } while (prossiga == false);
                                 break;
                         }
 
@@ -275,7 +294,16 @@ namespace POng2._0
 
                         break;
                     case 2:
-                      
+                        Console.Write("Informe o campo que deseja editar: 0-Cancelar Edição  1-Familia  2-Raça  3-Sexo  4-Nome ");
+                        int campo = int.Parse(Console.ReadLine());
+                        switch (campo) 
+                        {
+                            case 0:
+                                return;
+                            case 1:
+
+                                break;
+                        }
                         break;
                     case 3:
                         pe = new PetController();

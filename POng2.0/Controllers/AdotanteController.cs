@@ -4,6 +4,7 @@ using POng2._0.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
@@ -144,12 +145,27 @@ namespace POng2._0.Controllers
             Console.Write("Estado: ");
             adotante.Estado = Console.ReadLine();
 
-            Console.WriteLine("Chip Animal: ");
-            adotante.Chip = int.Parse(Console.ReadLine());
+            bool prossiga = false;
+            do {
+               
+                Console.WriteLine("Chip Animal: ");
+                int chip = int.Parse(Console.ReadLine());
+                PetController petController = new PetController();
+                Pet pet = petController.BuscarPet(chip);
+                if (pet.Situacao == 'D')
+                {
+                    adotante.Chip = pet.CHIP;
+                    petController.UpdateSituacaoPet(chip);
+                    prossiga = true;
+                }
+                Console.WriteLine("Esse pet já possui um lar!\nForneça um lar para outro pet...");
+                
 
+            } while (prossiga==false);
             Console.WriteLine("Data Adoção");
             adotante.DataAdocao = System.DateTime.Now;
 
+         
 
 
         } //cadastro adotante
