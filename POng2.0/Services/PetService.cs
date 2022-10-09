@@ -34,6 +34,7 @@ namespace POng2._0.Services
         }
         #endregion
 
+
         #region Select
         public List<Pet> SelectPet()
         {
@@ -57,6 +58,7 @@ namespace POng2._0.Services
         }
 
         #endregion
+
 
         #region Update
         public bool UpdateNomePet(int chip, string nome)
