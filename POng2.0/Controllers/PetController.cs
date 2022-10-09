@@ -12,11 +12,18 @@ namespace POng2._0.Controllers
 {
     public class PetController : IPetController
     {
+        #region Insert e Delete
         public Pet InserirPet(Pet pet)
         {
             return new PetService().InserirPet(pet);
         }
+        public bool DeletPet(int chip)
+        {
+            return new PetService().DeletPet(chip);
+        }
+        #endregion
 
+        #region Select
         public Pet BuscarPet(int chip)
         {
             return new PetService().BuscarPet(chip);
@@ -26,12 +33,9 @@ namespace POng2._0.Controllers
         {
             return new PetService().SelectPet();
         }
+        #endregion
 
-        public bool DeletPet(int chip)
-        {
-            return new PetService().DeletPet(chip);
-        }
-
+        #region Update
         public bool UpdateNomePet(int chip, string nome)
         {
             return new PetService().UpdateNomePet(chip, nome);
@@ -56,7 +60,7 @@ namespace POng2._0.Controllers
         {
             return new PetService().UpdateSituacaoPet(chip);
         }
-
+#endregion
         public void CadastrarPet(Pet pet)
         {
             Console.WriteLine(" >>> INICIANDO CADASTRO Pet <<< ");

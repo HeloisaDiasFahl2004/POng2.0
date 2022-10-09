@@ -107,6 +107,9 @@ namespace POng2._0
                         AdotanteController ad = new AdotanteController();// utilizando design pattern command
                         ad.CadastrarAdotante(adotante);//cadastro esse objeto
                         ad.InserirAdotante(adotante);//insiro esse objeto no banco de dados
+                        Console.WriteLine("Adotante inserido com sucesso!");
+                        Console.WriteLine(">>> Retornando para o menu do adotante <<<");
+                        Thread.Sleep(900);
                         break;
 
                     case 2:
@@ -115,7 +118,6 @@ namespace POng2._0
                         string cpf = ValidarEntrada();
                         if (cpf == null)
                         {
-                            Console.WriteLine("CPF inexistente!");
                             Console.WriteLine(">>> Retornando para o menu do adotante <<<");
                             Thread.Sleep(900);
                             MenuAdotante();
@@ -130,16 +132,40 @@ namespace POng2._0
                                 Console.Write("Informe o Nome: ");
                                 string nome = Console.ReadLine();
                                 var resulte = ad.UpdateNomeAdotante(cpf,nome);
+                                if (resulte)
+                                {
+                                    Console.WriteLine("Adotante atualizado com sucesso!");
+                                    Console.ReadKey();
+                                }
+                                Console.WriteLine("Não foi possível atualizar!");
+                                Console.WriteLine(">>> Retornando para o menu do adotante <<<");
+                                Thread.Sleep(900);
                                 break;
                             case 2:
                                 Console.Write("Informe o Sexo: ");
                                 char sexo = char.Parse(Console.ReadLine());
                                 var resulta = ad.UpdateSexoAdotante(cpf, sexo);
+                                if (resulta)
+                                {
+                                    Console.WriteLine("Adotante atualizado com sucesso!");
+                                    Console.ReadKey();
+                                }
+                                Console.WriteLine("Não foi possível atualizar!");
+                                Console.WriteLine(">>> Retornando para o menu do adotante <<<");
+                                Thread.Sleep(900);
                                 break;
                             case 3:
                                 Console.Write("Informe a Data de Nascimento: ");
                                 DateTime dataNasc=DateTime.Parse(Console.ReadLine());
                                 var resultad = ad.UpdateDataNascimentoAdotante(cpf,dataNasc);
+                                if (resultad)
+                                {
+                                    Console.WriteLine("Adotante atualizado com sucesso!");
+                                    Console.ReadKey();
+                                }
+                                Console.WriteLine("Não foi possível atualizar!");
+                                Console.WriteLine(">>> Retornando para o menu do adotante <<<");
+                                Thread.Sleep(900);
                                 break;
                             case 4:
                                 Console.Write("Informe o que deseja editar do Endereço: 0-Cancelar Edição 1-Logradouro  2-CEP  3-Complemento  4-Numero  5-Bairro  6-Cidade  7-Estado ");
@@ -152,36 +178,92 @@ namespace POng2._0
                                         Console.Write("Informe o Logradouro: ");
                                         string logradouro = Console.ReadLine();
                                         var res = ad.UpdateLogradouroAdotante(cpf, logradouro);
+                                        if (res)
+                                        {
+                                            Console.WriteLine("Adotante atualizado com sucesso!");
+                                            Console.ReadKey();
+                                        }
+                                        Console.WriteLine("Não foi possível atualizar!");
+                                        Console.WriteLine(">>> Retornando para o menu do adotante <<<");
+                                        Thread.Sleep(900);
                                         break;
                                     case 2:
                                         Console.Write("Informe o CEP: ");
                                         string cep =Console.ReadLine();
                                         var resul = ad.UpdateCepAdotante(cpf, cep);
+                                        if (resul)
+                                        {
+                                            Console.WriteLine("Adotante atualizado com sucesso!");
+                                            Console.ReadKey();
+                                        }
+                                        Console.WriteLine("Não foi possível atualizar!");
+                                        Console.WriteLine(">>> Retornando para o menu do adotante <<<");
+                                        Thread.Sleep(900);
                                         break;
                                     case 3:
                                         Console.Write("Informe o Complemento: ");
                                         string complemento = Console.ReadLine();
                                         var re = ad.UpdateComplementoAdotante(cpf, complemento);
+                                        if (re)
+                                        {
+                                            Console.WriteLine("Adotante atualizado com sucesso!");
+                                            Console.ReadKey();
+                                        }
+                                        Console.WriteLine("Não foi possível atualizar!");
+                                        Console.WriteLine(">>> Retornando para o menu do adotante <<<");
+                                        Thread.Sleep(900);
                                         break;
                                     case 4:
                                         Console.Write("Informe o Numero: ");
                                         int num = int.Parse(Console.ReadLine());
                                         var respta = ad.UpdateNumeroAdotante(cpf,num);
+                                        if (respta)
+                                        {
+                                            Console.WriteLine("Adotante atualizado com sucesso!");
+                                            Console.ReadKey();
+                                        }
+                                        Console.WriteLine("Não foi possível atualizar!");
+                                        Console.WriteLine(">>> Retornando para o menu do adotante <<<");
+                                        Thread.Sleep(900);
                                         break;
                                     case 5:
                                         Console.Write("Informe o Bairro: ");
                                         string bairro = Console.ReadLine(); 
                                         var repta = ad.UpdateBairroAdotante(cpf,bairro);
+                                        if (repta)
+                                        {
+                                            Console.WriteLine("Adotante atualizado com sucesso!");
+                                            Console.ReadKey();
+                                        }
+                                        Console.WriteLine("Não foi possível atualizar!");
+                                        Console.WriteLine(">>> Retornando para o menu do adotante <<<");
+                                        Thread.Sleep(900);
                                         break;
                                     case 6:
                                         Console.Write("Informe a Cidade: ");
                                         string cidade = Console.ReadLine();
                                         var rpsta=ad.UpdateCidadeAdotante(cpf,cidade);
+                                        if (rpsta)
+                                        {
+                                            Console.WriteLine("Adotante atualizado com sucesso!");
+                                            Console.ReadKey();
+                                        }
+                                        Console.WriteLine("Não foi possível atualizar!");
+                                        Console.WriteLine(">>> Retornando para o menu do adotante <<<");
+                                        Thread.Sleep(900);
                                         break;
                                     case 7:
                                         Console.Write("Informe o Estado: ");
                                         string estado = Console.ReadLine();
-                                        var rpta = ad.UpdateEstadoAdotante(cpf,estado); 
+                                        var rpta = ad.UpdateEstadoAdotante(cpf,estado);
+                                        if (rpta)
+                                        {
+                                            Console.WriteLine("Adotante atualizado com sucesso!");
+                                            Console.ReadKey();
+                                        }
+                                        Console.WriteLine("Não foi possível atualizar!");
+                                        Console.WriteLine(">>> Retornando para o menu do adotante <<<");
+                                        Thread.Sleep(900);
                                         break;
                                 }
                                 break;
@@ -189,6 +271,14 @@ namespace POng2._0
                                 Console.Write("Informe o Telefone: ");
                                 string telefone = Console.ReadLine();
                                 var resultado = ad.UpdateTelefoneAdotante(cpf, telefone);
+                                if (resultado)
+                                {
+                                    Console.WriteLine("Adotante atualizado com sucesso!");
+                                    Console.ReadKey();
+                                }
+                                Console.WriteLine("Não foi possível atualizar!");
+                                Console.WriteLine(">>> Retornando para o menu do adotante <<<");
+                                Thread.Sleep(900);
                                 break;
                             case 6:
                                 bool prossiga = false;
@@ -210,7 +300,6 @@ namespace POng2._0
                                 } while (prossiga == false);
                                 break;
                         }
-
                                 break;
                     case 3:
                         ad = new AdotanteController();
@@ -273,7 +362,7 @@ namespace POng2._0
             do
             {
                 Console.Clear();
-                Console.WriteLine("\t<<< MENU ADOTADO >>>");
+                Console.WriteLine("\t<<< MENU PET >>>");
                 Console.WriteLine("\t 0-Retornar ao menu principal");
                 Console.WriteLine("\t 1-Cadastrar Pet");
                 Console.WriteLine("\t 2-Editar Pet");
@@ -291,9 +380,15 @@ namespace POng2._0
                         PetController pe = new PetController();
                         pe.CadastrarPet(pet);
                         pe.InserirPet(pet);
-
+                        Console.WriteLine("Pet inserido com sucesso!");
+                        Console.WriteLine(">>> Retornando para o menu do pet <<<");
+                        Thread.Sleep(900);
                         break;
                     case 2:
+                        pe = new PetController();
+                        Console.Write("Informe o chip do animal que deseja editar: ");
+                        int chip = int.Parse(Console.ReadLine());
+                        pe.BuscarPet(chip);
                         Console.Write("Informe o campo que deseja editar: 0-Cancelar Edição  1-Familia  2-Raça  3-Sexo  4-Nome ");
                         int campo = int.Parse(Console.ReadLine());
                         switch (campo) 
@@ -301,14 +396,67 @@ namespace POng2._0
                             case 0:
                                 return;
                             case 1:
-
+                                Console.Write("Informe a Família: ");
+                                string f = Console.ReadLine();
+                                var resultado = pe.UpdateFamiliaPet(chip, f);
+                                if (resultado)
+                                {
+                                    Console.WriteLine("Pet atualizado com sucesso!");
+                                    Console.ReadKey();
+                                    break;
+                                }
+                                Console.WriteLine("Não foi possível atualizar!");
+                                Console.WriteLine(">>> Retornando para o menu do pet <<<");
+                                Thread.Sleep(900);
+                                break;
+                            case 2:
+                                Console.Write("Informe a Raca: ");
+                                string r = Console.ReadLine();
+                                var resulta = pe.UpdateRacaPet(chip, r);
+                                if (resulta)
+                                {
+                                    Console.WriteLine("Pet atualizado com sucesso!");
+                                    Console.ReadKey();
+                                    break;
+                                }
+                                Console.WriteLine("Não foi possível atualizar!");
+                                Console.WriteLine(">>> Retornando para o menu do pet <<<");
+                                Thread.Sleep(900);
+                                break;
+                            case 3:
+                                Console.Write("Informe o Sexo: ");
+                                char Sexo = char.Parse(Console.ReadLine());
+                                var respta = pe.UpdateSexoPet(chip, Sexo);
+                                if (respta)
+                                {
+                                    Console.WriteLine("Pet atualizado com sucesso!");
+                                    Console.ReadKey();
+                                    break;
+                                }
+                                Console.WriteLine("Não foi possível atualizar!");
+                                Console.WriteLine(">>> Retornando para o menu do pet <<<");
+                                Thread.Sleep(900);
+                                break;
+                            case 4:
+                                Console.Write("Informe o Nome: ");
+                                string nome =Console.ReadLine();
+                                var resp= pe.UpdateNomePet(chip, nome);
+                                if (resp)
+                                {
+                                    Console.WriteLine("Pet atualizado com sucesso!");
+                                    Console.ReadKey();
+                                    break;
+                                }
+                                Console.WriteLine("Não foi possível atualizar!");
+                                Console.WriteLine(">>> Retornando para o menu do pet <<<");
+                                Thread.Sleep(900);
                                 break;
                         }
                         break;
                     case 3:
                         pe = new PetController();
                         Console.WriteLine("Informe o CHIP: ");
-                        int chip = int.Parse(Console.ReadLine());
+                        chip = int.Parse(Console.ReadLine());
                         pe.BuscarPet(chip);
                         var result = pe.DeletPet(chip);
                         if (result)
@@ -320,7 +468,6 @@ namespace POng2._0
                         Console.WriteLine("Não foi possível deletar!");
                         Console.WriteLine(">>> Retornando para o menu do pet <<<");
                         Thread.Sleep(900);
-                        MenuPet();
                         break;
                     case 4:
                         Console.WriteLine(">>> INÍCIO IMPRESSÃO <<< ");
