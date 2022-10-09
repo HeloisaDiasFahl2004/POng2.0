@@ -15,11 +15,18 @@ namespace POng2._0.Controllers
     public class AdotanteController : IAdotanteController
     {
         //métodos
+        #region Insert e Delete
         public Adotante InserirAdotante(Adotante adotante)
         {
             return new AdotanteService().InserirAdotante(adotante);
         }
+        public bool DeletAdotante(String cpf)
+        {
+            return new AdotanteService().DeletAdotante(cpf);
+        }
+        #endregion
 
+        #region Select
         public Adotante BuscarAdotante(String cpf)
         {
             return new AdotanteService().BuscarAdotante(cpf);
@@ -30,10 +37,70 @@ namespace POng2._0.Controllers
             return new AdotanteService().SelectAdotante();
         }
 
-        public bool DeletAdotante(String cpf)
+        #endregion
+
+        #region Update
+        public bool UpdateNomeAdotante(string cpf, string nome)
         {
-            return new AdotanteService().DeletAdotante(cpf);
+            return new AdotanteService().UpdateNomeAdotante(cpf,nome);
         }
+
+        public bool UpdateSexoAdotante(string cpf, char sexo)
+        {
+            return new AdotanteService().UpdateSexoAdotante(cpf, sexo);
+        }
+
+        public bool UpdateDataNascimentoAdotante(string cpf, DateTime dataNasc)
+        {
+            return new AdotanteService().UpdateDataNascimentoAdotante(cpf, dataNasc);
+        }
+
+        public bool UpdateTelefoneAdotante(string cpf, string telefone)
+        {
+            return new AdotanteService().UpdateTelefoneAdotante(cpf, telefone);
+        }
+
+        public bool UpdateLogradouroAdotante(string cpf, string logradouro)
+        {
+            return new AdotanteService().UpdateLogradouroAdotante(cpf, logradouro);
+        }
+
+        public bool UpdateComplementoAdotante(string cpf, string complemento)
+        {
+            return new AdotanteService().UpdateComplementoAdotante(cpf, complemento);
+        }
+
+        public bool UpdateNumeroAdotante(string cpf, int numero)
+        {
+            return new AdotanteService().UpdateNumeroAdotante(cpf, numero);
+        }
+
+        public bool UpdateCepAdotante(string cpf, string cep)
+        {
+            return new AdotanteService().UpdateCepAdotante(cpf, cep);
+        }
+
+        public bool UpdateCidadeAdotante(string cpf, string cidade)
+        {
+            return new AdotanteService().UpdateCidadeAdotante(cpf, cidade);
+        }
+
+        public bool UpdateEstadoAdotante(string cpf, string estado)
+        {
+            return new AdotanteService().UpdateEstadoAdotante(cpf, estado);
+        }
+
+        public bool UpdateBairroAdotante(string cpf, string bairro)
+        {
+            return new AdotanteService().UpdateBairroAdotante(cpf, bairro);
+        }
+
+        public bool UpdateChipPet(string cpf, int chip)
+        {
+            return new AdotanteService().UpdateChipPet(cpf, chip);
+        }
+        
+        #endregion
 
         public void CadastrarAdotante(Adotante adotante)
         {

@@ -17,6 +17,16 @@ namespace POng2._0.Interface
 
         public bool DeletPet(int chip);
 
+        public bool UpdateNomePet(int chip,string nome);
+
+        public bool UpdateSexoPet(int chip, char sexo);
+
+        public bool UpdateRacaPet(int chip,string raca);
+
+        public bool UpdateFamiliaPet(int chip, string familia);
+
+        public bool UpdateSituacaoPet(int chip);
+
         public void CadastrarPet(Pet pet);
     }
 }

@@ -107,20 +107,97 @@ namespace POng2._0
                         AdotanteController ad = new AdotanteController();// utilizando design pattern command
                         ad.CadastrarAdotante(adotante);//cadastro esse objeto
                         ad.InserirAdotante(adotante);//insiro esse objeto no banco de dados
-                       // PetController p = new PetController();
-                       //p.UpdateSituacao(pet);
-
                         break;
 
-                    //  case 2:
-                    ////      bd.AtualizarCampoAdotante();
-                    //      break;
+                    case 2:
+                        ad = new AdotanteController();
+                        Console.Write("Informe o CPF: ");
+                        string cpf = ValidarEntrada();
+                        if (cpf == null)
+                        {
+                            Console.WriteLine("CPF inexistente!");
+                            Console.WriteLine(">>> Retornando para o menu do adotante <<<");
+                            Thread.Sleep(900);
+                            MenuAdotante();
+                        }
+                        Console.Write("Informe o campo que deseja editar: 0-Cancelar Edição  1-Nome  2-Sexo  3-Data Nascimento  4-Endereço  5-Telefone ");
+                        int campo = int.Parse(Console.ReadLine());
+                        switch (campo)
+                        {
+                            case 0:
+                                return;
+                            case 1:
+                                Console.Write("Informe o Nome: ");
+                                string nome = Console.ReadLine();
+                                var resulte = ad.UpdateNomeAdotante(cpf,nome);
+                                break;
+                            case 2:
+                                Console.Write("Informe o Sexo: ");
+                                char sexo = char.Parse(Console.ReadLine());
+                                var resulta = ad.UpdateSexoAdotante(cpf, sexo);
+                                break;
+                            case 3:
+                                Console.Write("Informe a Data de Nascimento: ");
+                                DateTime dataNasc=DateTime.Parse(Console.ReadLine());
+                                var resultad = ad.UpdateDataNascimentoAdotante(cpf,dataNasc);
+                                break;
+                            case 4:
+                                Console.Write("Informe o que deseja editar do Endereço: 0-Cancelar Edição 1-Logradouro  2-CEP  3-Complemento  4-Numero  5-Bairro  6-Cidade  7-Estado ");
+                                int r = int.Parse(Console.ReadLine());
+                                switch (r)
+                                {
+                                    case 0:
+                                        return;
+                                    case 1:
+                                        Console.Write("Informe o Logradouro: ");
+                                        string logradouro = Console.ReadLine();
+                                        var res = ad.UpdateLogradouroAdotante(cpf, logradouro);
+                                        break;
+                                    case 2:
+                                        Console.Write("Informe o CEP: ");
+                                        string cep =Console.ReadLine();
+                                        var resul = ad.UpdateCepAdotante(cpf, cep);
+                                        break;
+                                    case 3:
+                                        Console.Write("Informe o Complemento: ");
+                                        string complemento = Console.ReadLine();
+                                        var re = ad.UpdateComplementoAdotante(cpf, complemento);
+                                        break;
+                                    case 4:
+                                        Console.Write("Informe o Numero: ");
+                                        int num = int.Parse(Console.ReadLine());
+                                        var respta = ad.UpdateNumeroAdotante(cpf,num);
+                                        break;
+                                    case 5:
+                                        Console.Write("Informe o Bairro: ");
+                                        string bairro = Console.ReadLine(); 
+                                        var repta = ad.UpdateBairroAdotante(cpf,bairro);
+                                        break;
+                                    case 6:
+                                        Console.Write("Informe a Cidade: ");
+                                        string cidade = Console.ReadLine();
+                                        var rpsta=ad.UpdateCidadeAdotante(cpf,cidade);
+                                        break;
+                                    case 7:
+                                        Console.Write("Informe o Estado: ");
+                                        string estado = Console.ReadLine();
+                                        var rpta = ad.UpdateEstadoAdotante(cpf,estado); 
+                                        break;
+                                }
+                                break;
+                            case 5:
+                                Console.Write("Informe o Telefone: ");
+                                string telefone = Console.ReadLine();
+                                var resultado = ad.UpdateTelefoneAdotante(cpf, telefone);
+                                break;
+                        }
 
+                                break;
                     case 3:
                         ad = new AdotanteController();
 
                         Console.Write("Informe o CPF: ");
-                        string cpf = ValidarEntrada();
+                        cpf = ValidarEntrada();
                         if (cpf == null)
                         {
                             Console.WriteLine("CPF inexistente!");
@@ -179,10 +256,10 @@ namespace POng2._0
                 Console.Clear();
                 Console.WriteLine("\t<<< MENU ADOTADO >>>");
                 Console.WriteLine("\t 0-Retornar ao menu principal");
-                Console.WriteLine("\t 1-Cadastrar Adotado");
-                Console.WriteLine("\t 2-Editar Adotado");
-                Console.WriteLine("\t 3-Deletar Adotado");
-                Console.WriteLine("\t 4-Exibir Adotado");
+                Console.WriteLine("\t 1-Cadastrar Pet");
+                Console.WriteLine("\t 2-Editar Pet");
+                Console.WriteLine("\t 3-Deletar Pet");
+                Console.WriteLine("\t 4-Exibir todos os Pet");
                 Console.Write("\t Escolha uma opção: ");
                 opc = int.Parse(Console.ReadLine());
                 switch (opc)
@@ -197,9 +274,9 @@ namespace POng2._0
                         pe.InserirPet(pet);
 
                         break;
-                    //case 2:
-                    //    bd.AtualizarCampoAdotado();
-                    //    break;
+                    case 2:
+                      
+                        break;
                     case 3:
                         pe = new PetController();
                         Console.WriteLine("Informe o CHIP: ");
